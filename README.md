@@ -28,10 +28,10 @@ WTF are public goods?
 - Incentivises smaller contributors over big contributors (whales)
 - Anyone can make a contribution to any project; a mechanism (smart contract) keeps track of these contributions and then at the end of some period of time the mechanism (smart contract) calculates a payment to each project. ***The way that this payment is calculated is as follows: for any given project, take the square root of each contributor's contribution, add these values together, and take the square of the result.***
 
-![Overview](./docs/quadratic_voting.png)
+![Overview](./images/quadratic_voting.png)
 - In any case where there is more than one contributor, the computed payment is greater than the raw sum of contributions; the difference comes out of a central subsidy pool (eg. if ten people each donate $1, then the sum-of-square-roots is $10, and the square of that is $100, so the subsidy is $90). Note that if the subsidy pool is not big enough to make the full required payment to every project, we can just divide the subsidies proportionately by whatever constant makes the totals add up to the subsidy pool's budget; **you can prove that this solves the tragedy-of-the-commons problem as well as you can with that subsidy budget**.
 
-!['The Math'](./docs/quadratic_voting_maths.png)
+!['The Math'](./images/quadratic_voting_maths.png)
 
 ## References
 Vitalik Buterin's Blog
