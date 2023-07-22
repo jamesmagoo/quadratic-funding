@@ -1,3 +1,5 @@
+// SPDX-Licence-Identifier: MIT
+
 // Layout of Contract:
 // version
 // imports
@@ -19,8 +21,6 @@
 // private
 // view & pure functions
 
-// SPDX-Licence-Identifier: MIT
-
 pragma solidity ^0.8.18;
 
 /**
@@ -30,35 +30,33 @@ pragma solidity ^0.8.18;
  * @dev not sure yet
  */
 contract MainQuadraticFund {
+    // Store the main fund a.k.a matching pool this will be the address.balance of this contract..
+    // Allow projects to submit to the fund for donations
+    // Allow users to donate to these projects
+    // Calculate the distribution of the matching pool to the project at X time.
+    // need to set some kind of time limit
+    error MainQuadraticFund__NotAuthorized();
+    error MainQuadraticFund__TimeNotUp();
+    error MainQuadraticFund__OnlyOneContributionPerProject();
 
-// Store the main fund a.k.a matching pool this will be the address.balance of this contract..
-// Allow projects to submit to the fund for donations
-// Allow users to donate to these projects
-// Calculate the distribution of the matching pool to the project at X time. 
-// need to set some kind of time limit 
-error MainQuadraticFund__NotAuthorized();
-error MainQuadraticFund__TimeNotUp();
-error MainQuadraticFund__OnlyOneContributionPerProject();
+    uint256 public thePot;
 
+    // each project can be an eth address for now
+    address payable[] private s_projects;
 
-uint256 public thePot;
+    struct Contribution {
+        string nameOfContributor;
+        uint256 amountContributed;
+        address projectSupported;
+    }
 
-// each project can be an eth address for now 
-address payable[] private s_projects;
+    Contribution[] public contributions;
 
-struct Contribution {
-    string nameOfContributor;
-    uint256 amountContributed;
-    address projectSupported;
-}
+    mapping(address project => uint256 noOfContributors) public projectContributions;
+    mapping(address contributor => address project) public contributorProject;
 
-Contribution[] public contributions;
-
-mapping(address project => uint256 noOfContributors) public projectContributions;
-mapping(address contributor => address project) public contributorProject;
-
-function makeContribution(string memory _name, uint256 _amount, address _projectSupported) public {
-    // check if contrubutor has already contributed, can only contribute once
-    contributions.push(Contribution(_name, _amount, _projectSupported));
-}
+    function makeContribution(string memory _name, uint256 _amount, address _projectSupported) public {
+        // check if contrubutor has already contributed, can only contribute once
+        contributions.push(Contribution(_name, _amount, _projectSupported));
+    }
 }
