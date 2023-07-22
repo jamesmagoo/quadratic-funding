@@ -10,7 +10,7 @@ This is a learning exercise on quadratic funding; what is it, on  how it works, 
     - At a given time, close the funding channels, calculate who gets what, and then sends them the cash. 
 
 Design Notes:
-- For this exercise , maybe the end of the funding round can be triggered by the MainQuadFund owner. In reality I think this would be on a timing mechanism i.e. the funding round closes on X date at Y time. At this point no more funders can doante, and the 'votes' will be calculated & the spoils will be shared. 
+- For this exercise , maybe the end of the funding round can be triggered by the MainQuadFund owner. In reality I think this would be on a timing mechanism i.e. the funding round closes on X date at Y time. At this point no more funders can donate, and the 'votes' will be calculated & the spoils will be shared. 
 - Helpful to think of somebody's donation as their 'vote' for a particular project to succeed.
 - Would be cool to have a UI that anyone can spin up a fund and run through a test fund sequence where they; can spin up dummy projects, vote/fund with dummy people, and then see how it all gets distributed at the end. 
 
